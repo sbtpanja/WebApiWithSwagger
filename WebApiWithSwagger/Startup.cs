@@ -109,7 +109,7 @@ namespace WebApiWithSwagger
             });
 
             app.UseResponseCompression();
-
+            app.UseResponseCaching();
             app.UseMvc();
         }
     }
