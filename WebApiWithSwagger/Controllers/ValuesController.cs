@@ -12,11 +12,13 @@ namespace WebApiWithSwagger.Controllers
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            var text = System.IO.File.ReadAllLines(@"D:\ServiceLog\Log.txt");
+            //return new string[] { "value1", "value2" };
+            return Ok(text);
         }
-
+        
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
