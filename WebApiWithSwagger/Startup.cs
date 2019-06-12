@@ -63,10 +63,16 @@ namespace WebApiWithSwagger
                 });
             });
 
+            services.AddResponseCaching();
+
+
+            
+
             services.AddResponseCompression(options =>
             {
                 options.Providers.Add<BrotliCompressionProvider>();
                 options.Providers.Add<GzipCompressionProvider>();
+                options.EnableForHttps = true;
                 options.MimeTypes =
                     ResponseCompressionDefaults.MimeTypes.Concat(
                         new[] { "image/svg+xml" });
